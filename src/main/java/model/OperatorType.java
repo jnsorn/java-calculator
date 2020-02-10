@@ -39,17 +39,20 @@ public enum OperatorType {
         }
     };
 
-    final private String operator;
+    private final String operator;
 
     OperatorType(String operator) {
         this.operator = operator;
     }
 
-    @Override
-    public String toString() {
-        return operator;
-    }
-
     public abstract double calculate(double number1, double number2);
 
+    public static OperatorType of(String operator) {
+        for (OperatorType op : OperatorType.values()) {
+            if (op.operator.equals(operator)) {
+                return op;
+            }
+        }
+        return null;
+    }
 }

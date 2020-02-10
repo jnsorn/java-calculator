@@ -13,10 +13,13 @@
 
 package view;
 
+import util.MessageType;
+
 import java.util.Scanner;
 
 public class InputView {
     public static String inputStringFromUser() {
+        System.out.println(MessageType.INPUT_EXPRESSION_FROM_USER.getMessage());
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }

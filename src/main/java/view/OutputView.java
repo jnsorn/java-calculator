@@ -13,8 +13,11 @@
 
 package view;
 
+import util.MessageType;
+
 public class OutputView {
     public static void print(double sum) {
+        System.out.println(MessageType.OUTPUT_EXPRESSION_FORMAT.getMessage());
         System.out.println(sum);
     }
 }

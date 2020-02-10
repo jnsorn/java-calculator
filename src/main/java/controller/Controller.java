@@ -7,7 +7,7 @@
  *
  * @author      또링
  * @version     1.0
- * @date        09 Feb 2020
+ * @date        10 Feb 2020
  *
  */
 
@@ -46,8 +46,7 @@ public class Controller {
         Calculator calculator = new Calculator();
 
         for (int i = 0; i < operators.size(); i++) {
-            calculator.setOperatorType(operators.get(i));
-            result = calculator.calculate(result, numbers.get(i + 1));
+            result = calculator.calculate(operators.get(i), result, numbers.get(i + 1));
         }
 
         return result;

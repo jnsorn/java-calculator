@@ -62,18 +62,11 @@ public class InputValidator {
     }
 
     public boolean isRightOperatorAllElements(List<String> oddIndexOfExpression) {
-        List<String> fourOperators = new ArrayList<>();
-
-        for (OperatorType op : OperatorType.values()) {
-            fourOperators.add(op.toString());
-        }
-
         for (String operator : oddIndexOfExpression) {
-            if (!fourOperators.contains(operator)) {
+            if (OperatorType.of(operator) == null) {
                 return false;
             }
         }
-
         return true;
     }
 

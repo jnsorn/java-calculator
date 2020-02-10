@@ -16,17 +16,8 @@ package calculator;
 import model.OperatorType;
 
 public class Calculator {
-    private OperatorType operatorType;
-
-    public void setOperatorType(String operator) {
-        for (OperatorType op : OperatorType.values()) {
-            if (operator.equals(op.toString())) {
-                operatorType = op;
-            }
-        }
-    }
-
-    public double calculate(double number1, double number2) {
+    public double calculate(String operator, double number1, double number2) {
+        OperatorType operatorType = OperatorType.of(operator);
         return operatorType.calculate(number1, number2);
     }
 }

@@ -18,23 +18,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Expression {
-    private String expression;
     private List<Double> numbers = new ArrayList<>();
     private List<String> operators = new ArrayList<>();
 
     public Expression(String expression) {
-        this.expression = expression;
-        setValueList();
-    }
-
-    public void setValueList() {
         String[] componentOfExpression = expression.split(InputValidator.BLANK);
-        for (int i = 0; i < componentOfExpression.length; i++) {
-            if (i % 2 == 0) {
-                numbers.add(Double.parseDouble(componentOfExpression[i]));
-            }
+        numbers.add(Double.parseDouble(componentOfExpression[0]));
+        int expressionSize = componentOfExpression.length;
+        for (int i = 1; i < expressionSize; i += 2) {
             if (i % 2 == 1) {
                 operators.add(componentOfExpression[i]);
+                numbers.add(Double.parseDouble(componentOfExpression[i + 1]));
             }
         }
     }
